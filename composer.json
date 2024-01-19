@@ -1,0 +1,41 @@
+{
+  "name": "bitbirddev/twig-components-bundle",
+  "type": "symfony-bundle",
+  "description": "",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Benjamin Schneider",
+      "email": "bs@bitbird.de",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=8.2",
+    "symfony/ux-twig-component": "^2.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "bitbirddev\\TwigComponentsBundle\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "bitbirddev\\TwigComponentsBundle\\\\Tests\\": "tests/Unit"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "platform": {
+      "php": "8.2"
+    },
+    "allow-plugins": {}
+  },
+  "scripts": {},
+  "require-dev": {
+    "pimcore/pimcore": "^11"
+  }
+}

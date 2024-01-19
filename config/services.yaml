@@ -1,0 +1,16 @@
+imports:
+  - { resource: ./services/*.yaml }
+
+parameters:
+
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  # bitbirddev\TwigComponentsBundle\:
+  #   resource: "../src/*"
+  #   exclude:
+  #     - "../src/{DependencyInjection,Entity,Tests,Kernel.php}"
+
+  bitbirddev\TwigComponentsBundle\Twig\Components\MediaPlayerComponent: ~
