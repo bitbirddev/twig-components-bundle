@@ -14,6 +14,7 @@
   "prefer-stable": true,
   "require": {
     "php": ">=8.2",
+    "illuminate/collections": "^10.41",
     "symfony/ux-twig-component": "^2.13"
   },
   "autoload": {
@@ -23,7 +24,14 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "bitbirddev\\TwigComponentsBundle\\\\Tests\\": "tests/Unit"
+      "bitbirddev\\TwigComponentsBundle\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "pimcore": {
+      "bundles": [
+        "bitbirddev\\TwigComponentsBundle\\TwigComponentsBundle"
+      ]
     }
   },
   "config": {
@@ -32,10 +40,16 @@
     "platform": {
       "php": "8.2"
     },
-    "allow-plugins": {}
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   },
-  "scripts": {},
+  "scripts": {
+    "test": "./vendor/bin/pest",
+    "coverage": "./vendor/bin/pest --coverage"
+  },
   "require-dev": {
+    "pestphp/pest": "^2.31",
     "pimcore/pimcore": "^11"
   }
 }

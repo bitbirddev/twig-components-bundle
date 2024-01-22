@@ -1,5 +1,5 @@
 imports:
-  - { resource: ./services/*.yaml }
+  # - { resource: ./services/*.yaml }
 
 parameters:
 
@@ -8,9 +8,14 @@ services:
     autoconfigure: true
     autowire: true
 
-  # bitbirddev\TwigComponentsBundle\:
-  #   resource: "../src/*"
-  #   exclude:
-  #     - "../src/{DependencyInjection,Entity,Tests,Kernel.php}"
+  bitbirddev\TwigComponentsBundle\:
+    resource: "../src/*"
+    exclude:
+      - "../src/{DependencyInjection,Entity,Tests,Kernel.php}"
 
-  bitbirddev\TwigComponentsBundle\Twig\Components\MediaPlayerComponent: ~
+  # bitbirddev\TwigComponentsBundle\Twig\Components\MediaPlayerComponent: ~
+  # bitbirddev\TwigComponentsBundle\MediaType\Matchers\DataObjectMatcher:
+  #   tags: ["mediatype.matcher"]
+  bitbirddev\TwigComponentsBundle\MediaType\HandlerCollection:
+    arguments:
+      $handlers: !tagged_iterator mediatype.handler

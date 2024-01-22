@@ -1,0 +1,43 @@
+pimcore:
+  assets:
+    image:
+      thumbnails:
+        definitions:
+          "twig_components_bundle_1280_720":
+            items:
+              - method: cover
+                arguments:
+                  width: 1280
+                  height: 720
+                  positioning: center
+                  forceResize: false
+            medias: {}
+            name: "twig_components_bundle_1280_720"
+            description: ""
+            group: ""
+            format: SOURCE
+            quality: 85
+            highResolution: 0.0
+            preserveColor: false
+            preserveMetaData: false
+            rasterizeSVG: false
+            downloadable: false
+            modificationDate: 1700790080
+            creationDate: 1665954110
+            preserveAnimation: false
+    video:
+      thumbnails:
+        definitions:
+          "twig_components_bundle_720_405":
+            items:
+              - method: scaleByWidth
+                arguments:
+                  width: 720
+            medias: {}
+            name: "twig_components_bundle_720_405"
+            description: ""
+            group: ""
+            videoBitrate: 400
+            audioBitrate: 128
+            modificationDate: 1666128831
+            creationDate: 1666102913

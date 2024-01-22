@@ -1,16 +1,17 @@
-{% if true %}
-    <consent-wall previewImageUrl="{{ data.poster }}" requiredConsents="{{ services|json_encode }}" class="aspect-w-16 aspect-h-9 rounded overflow-hidden">
+{% if sources.status is defined %}
+    <media-encoding-status {{ attributes }} previewImageUrl="{{ poster }}" status="{{ sources.status }}" processId="{{ sources.processId }}"  style="aspect-ratio: 16/9" />
+{% endif %}
+{% if sources.0 is defined %}
+    <consent-wall {{ attributes }} previewImageUrl="{{ poster }}" requiredConsents="{{ consents|json_encode }}">
     <media-player>
-    {% if data.poster %}<media-poster class="vds-poster" src="{{ data.poster }}"></media-poster>{% endif %}
+    {% if poster %}<media-poster class="vds-poster" src="{{ poster }}"></media-poster>{% endif %}
     <media-provider>
-    {% for source in data.sources %}<source src="{{ source.src }}" type="{{ source.type }}" />{% endfor %}
+    {% for source in sources %}<source src="{{ source.src }}" type="{{ source.type }}" />{% endfor %}
     </media-provider>
     <media-video-layout></media-video-layout>
     <media-audio-layout></media-audio-layout>
     </media-player>
     </consent-wall>
-    {% if data.copyright %}
-        <div class="mt-1 text-gray-400 text-sm flex justify-end">© {{ data.copyright }}</div>
-    {% endif %}
+    {% if copyright %}<div class="mt-1 text-gray-400 text-sm flex justify-end">© {{ copyright }}</div>{% endif %}
 {% endif %}
 <div class="my-12"></div>

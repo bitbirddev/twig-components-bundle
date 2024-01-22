@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace bitbirddev\TwigComponentsBundle;
+namespace bitbirddev\TwigComponentsBundle\DependencyInjection;
 
+use bitbirddev\TwigComponentsBundle\MediaType\HandlerInterface;
 use Exception;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class TwigComponentsBundleExtension extends Extension
+class TwigComponentsExtension extends Extension
 {
     public function __construct(
         private readonly string $configDir,
@@ -23,6 +24,10 @@ class TwigComponentsBundleExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
+        $container->registerForAutoconfiguration(HandlerInterface::class)
+         ->addTag('mediatype.handler')
+        ;
+
         (new YamlFileLoader(
             $container,
             new FileLocator(
