@@ -1,0 +1,4 @@
+# api_post_show:
+#   path: /api/posts/{id}
+#   controller: App\Controller\BlogApiController::show
+#   methods: GET|HEAD
