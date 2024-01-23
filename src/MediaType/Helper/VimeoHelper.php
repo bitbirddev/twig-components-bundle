@@ -35,6 +35,7 @@ class VimeoHelper
 
         if(!$hash) {
             if(preg_match('/^(?<id>\d+)(?:[\/|\?|\&])h?(?:ash)?=?(?<hash>[0-9a-zA-Z]+)/', $id, $matches)) {
+                $id = $matches['id'];
                 $hash = $matches['hash'];
             }
         }
