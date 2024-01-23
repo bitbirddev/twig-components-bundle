@@ -7,7 +7,7 @@ use bitbirddev\TwigComponentsBundle\MediaType\Helper\VimeoHelper;
 
 class VimeoUrlHandler extends AbstractHandler
 {
-    public function __construct(protected ?string $vimeoId = null)
+    public function __construct(protected ?string $vimeoId = null, protected ?string $hash = null)
     {
     }
 
@@ -22,8 +22,8 @@ class VimeoUrlHandler extends AbstractHandler
 
     public static function make(string $url): HandlerInterface
     {
-        if($id = VimeoHelper::matchUrl($url)) {
-            return new self($id);
+        if($matches = VimeoHelper::matchUrl($url)) {
+            return new self($matches['id'], $matches['hash']);
         }
     }
     public function getId(): string
@@ -31,9 +31,14 @@ class VimeoUrlHandler extends AbstractHandler
         return $this->vimeoId;
     }
 
+    public function getHash(): ?string
+    {
+        return $this->hash;
+    }
+
     public function getSources(): array
     {
-        return [["src" => VimeoHelper::createEmbedUrl($this->getId()), "type" => "video/vimeo"]];
+        return [["src" => VimeoHelper::createEmbedUrl($this->getId(), $this->getHash()), "type" => "video/vimeo"]];
     }
 
     public function getConsents(): array

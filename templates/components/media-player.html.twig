@@ -3,15 +3,26 @@
 {% endif %}
 {% if sources.0 is defined %}
     <consent-wall {{ attributes }} previewImageUrl="{{ poster }}" requiredConsents="{{ consents|json_encode }}">
-    <media-player>
-    {% if poster %}<media-poster class="vds-poster" src="{{ poster }}"></media-poster>{% endif %}
-    <media-provider>
-    {% for source in sources %}<source src="{{ source.src }}" type="{{ source.type }}" />{% endfor %}
-    </media-provider>
-    <media-video-layout></media-video-layout>
-    <media-audio-layout></media-audio-layout>
-    </media-player>
+    {% if sources.0.type == "video/vimeo" %}
+        <iframe class="vimeo-player"
+                src="{{ sources.0.src }}"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                style="position:absolute;
+                       top:0;
+                       left:0;
+                       width:100%;
+                       height:100%"></iframe>
+    {% else %}
+        <media-player>
+        {% if poster %}<media-poster class="vds-poster" src="{{ poster }}"></media-poster>{% endif %}
+        <media-provider>
+        {% for source in sources %}<source src="{{ source.src }}" type="{{ source.type }}" />{% endfor %}
+        </media-provider>
+        <media-video-layout></media-video-layout>
+        <media-audio-layout></media-audio-layout>
+        </media-player>
+        {% if copyright %}<div class="mt-1 text-gray-400 text-sm flex justify-end">© {{ copyright }}</div>{% endif %}
+    {% endif %}
     </consent-wall>
-    {% if copyright %}<div class="mt-1 text-gray-400 text-sm flex justify-end">© {{ copyright }}</div>{% endif %}
 {% endif %}
-<div class="my-12"></div>

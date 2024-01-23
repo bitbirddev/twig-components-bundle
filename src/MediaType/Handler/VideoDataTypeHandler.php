@@ -65,7 +65,7 @@ class VideoDataTypeHandler extends AbstractHandler
         return match($this->video->getType()) {
             "youtube" => null,
             "vimeo" => null,
-            "asset" => $this->video->getPoster()->getThumbnail($this->posterThumbnailName)->getFrontendPath(),
+            "asset" => $this->video->getPoster() ? $this->video->getPoster()->getThumbnail($this->posterThumbnailName)->getFrontendPath() : null,
             default => null
         };
     }

@@ -74,7 +74,6 @@ abstract class AbstractHandler implements HandlerInterface, MediaInterface
                     "inprogress" =>  ['status' => 'inprogress', 'processId' => $thumbnail['processId']],
 
                 };
-                ray($sources);
                 return $sources;
             }
         }

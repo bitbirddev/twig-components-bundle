@@ -7,7 +7,6 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 use bitbirddev\TwigComponentsBundle\MediaType\Handler\AbstractHandler;
 use Symfony\UX\TwigComponent\Attribute\PostMount;
-use Symfony\UX\TwigComponent\Attribute\PreMount;
 
 #[AsTwigComponent('media-player', "@TwigComponents/components/media-player.html.twig")]
 class MediaPlayerComponent
