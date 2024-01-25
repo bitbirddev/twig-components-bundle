@@ -63,5 +63,5 @@ test('YoutubeMatcher::make()', function ($url, $id) {
 })->with($goodUrls);
 
 test('YoutubeSources', function ($url, $id) {
-    expect(YoutubeUrlHandler::make($url)->getSources())->toBe(["src" => YoutubeHelper::createEmbedUrl($id), "type" => "video/youtube"]);
+    expect(YoutubeUrlHandler::make($url)->getSources())->toBe([["src" => YoutubeHelper::createEmbedUrl($id), "type" => "video/youtube"]]);
 })->with($goodUrls);

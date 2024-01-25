@@ -39,9 +39,9 @@ test('Bad VimeoUrls', function ($url) {
 })->with($badUrls);
 
 test('Vimeo ID Matcher', function ($url, $id) {
-    expect(VimeoHelper::matchUrl($url))->toBe($id);
+    expect(VimeoHelper::matchUrl($url))->toBe(["id" => $id, "hash" => null]);
 })->with($goodUrls);
 
 test('VimeoSources', function ($url, $id) {
-    expect(VimeoUrlHandler::make($url)->getSources())->toBe(["src" => VimeoHelper::createEmbedUrl($id), "type" => "video/vimeo"]);
+    expect(VimeoUrlHandler::make($url)->getSources())->toBe([["src" => VimeoHelper::createEmbedUrl($id), "type" => "video/vimeo"]]);
 })->with($goodUrls);
