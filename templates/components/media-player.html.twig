@@ -13,22 +13,19 @@
                        left:0;
                        width:100%;
                        height:100%"></iframe>
-        {% if sources.0.type == "video/facebook" %}
-            <div class="fb-video w-full"
-                 data-href="{{ sources.0.src }}"
-                 data-show-captions="true"
-                 data-lazy="true"
-                 data-allowfullscreen="true"
-                 style="position:absolute;
-                        right:0;
-                        bottom: 0;
-                        top:0;
-                        left:0;
-                        width:100%;
-                        height:100%">
-            </iframe>
-            >
-        </div>
+    {% elseif sources.0.type == "video/facebook" %}
+        <div class="fb-video w-full"
+             data-href="{{ sources.0.src }}"
+             data-show-captions="true"
+             data-lazy="true"
+             data-allowfullscreen="true"
+             style="position:absolute;
+                    right:0;
+                    bottom: 0;
+                    top:0;
+                    left:0;
+                    width:100%;
+                    height:100%"></div>
     {% else %}
         <media-player>
         {% if poster %}<media-poster class="vds-poster" src="{{ poster }}"></media-poster>{% endif %}
