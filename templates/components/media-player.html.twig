@@ -14,10 +14,12 @@
                        width:100%;
                        height:100%"></iframe>
     {% elseif sources.0.type == "video/facebook" %}
-        <div class="fb-video w-full"
+        <div class="fb-video"
              data-href="{{ sources.0.src }}"
              data-show-captions="true"
              data-lazy="true"
+             data-width="1920"
+             data-height="1080"
              data-allowfullscreen="true"
              style="position:absolute;
                     right:0;
