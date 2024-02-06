@@ -39,7 +39,7 @@ class VimeoHelper
                 $hash = $matches['hash'];
             }
         }
-        return "https://player.vimeo.com/video/{$id}".($hash ? "?h=".$hash : null) ;
+        return "https://player.vimeo.com/video/{$id}".($hash ? "?hash=".$hash : null) ;
     }
 
 }
