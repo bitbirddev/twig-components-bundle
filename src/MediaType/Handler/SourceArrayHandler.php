@@ -33,4 +33,5 @@ class SourceArrayHandler extends AbstractHandler
         // we dont know which sources are provided
         return [];
     }
+
 }

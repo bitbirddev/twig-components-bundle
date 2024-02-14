@@ -43,5 +43,4 @@ class YoutubeUrlHandler extends AbstractHandler
     {
         return ['BJz7qNsdj-7'];
     }
-
 }

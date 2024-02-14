@@ -1,13 +1,31 @@
 {% if sources.status is defined %}
-    <media-encoding-status {{ attributes }} previewImageUrl="{{ poster }}" status="{{ sources.status }}" processId="{{ sources.processId }}" />
+    <media-encoding-status {{ attributes }} style="aspect-ratio: {{ aspectRatio }}" previewImageUrl="{{ poster }}" status="{{ sources.status }}" processId="{{ sources.processId }}" />
 {% endif %}
 {% if sources.0 is defined %}
-    <consent-wall {{ attributes }} previewImageUrl="{{ poster }}" requiredConsents="{{ consents|json_encode }}">
+    <consent-wall {{ attributes }} style="aspect-ratio: {{ aspectRatio }}" previewImageUrl="{{ poster }}" requiredConsents="{{ consents|json_encode }}">
     {% if sources.0.type == "video/facebook" %}
-        <div class="fb-video" {{ attributes.only("class") }} data-href="{{ sources.0.src }}" data-show-captions="true" data-lazy="true" data-allowfullscreen="true" style="position:absolute; right:0; bottom: 0; top:0; left:0; width:100%; height:100%">
-        </div>
+        <div id="fb-root"></div>
+        <script async
+                defer
+                crossorigin="anonymous"
+                src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v19.0&appId=109599109202299"
+                nonce="jg1pjpaR"></script>
+        <div class="fb-video"
+             data-href="{{ sources.0.src }}"
+             data-show-captions="false"
+             data-lazy="true"
+             data-allowfullscreen="true"
+             style="position:absolute;
+                    right:0;
+                    bottom: 0;
+                    top:0;
+                    left:0;
+                    width:100%;
+                    height:100%"
+             data-width="{{ fbVideoWidth }}"
+             data-height="{{ fbVideoHeight }}"></div>
     {% else %}
-        <media-player {{ attributes.only("class") }}>
+        <media-player>
         {% if poster %}<media-poster class="vds-poster" src="{{ poster }}"></media-poster>{% endif %}
         <media-provider>
         {% for source in sources %}<source src="{{ source.src }}" type="{{ source.type }}" />{% endfor %}

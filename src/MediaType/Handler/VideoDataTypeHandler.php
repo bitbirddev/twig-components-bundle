@@ -79,4 +79,5 @@ class VideoDataTypeHandler extends AbstractHandler
             default => []
         };
     }
+
 }

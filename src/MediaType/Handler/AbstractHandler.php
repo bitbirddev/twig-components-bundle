@@ -48,6 +48,11 @@ abstract class AbstractHandler implements HandlerInterface, MediaInterface
         return [];
     }
 
+    public function getAspectRatio(): string
+    {
+        return '16/9';
+    }
+
     /**
      * @param Video $asset
      * @return array

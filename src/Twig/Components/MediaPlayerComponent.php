@@ -23,6 +23,7 @@ class MediaPlayerComponent
     public ?array $sources;
     public ?string $poster;
     public ?array $consents;
+    public ?string $aspectRatio = null;
 
     public function __construct(
         protected HandlerCollection $matcher
@@ -46,6 +47,34 @@ class MediaPlayerComponent
         if($this->posterThumbnail) {
             $this->video->setPosterThumbnailName($this->posterThumbnail);
         }
+    }
+
+    #[ExposeInTemplate('fbVideoWidth')]
+    public function getFbVideoWidth(): int
+    {
+        if($this->getAspectRatio()) {
+            if(preg_match('@^(\d+)/(\d+)$@', $this->aspectRatio, $matches)) {
+                return intval($matches[1]) * 1000;
+            }
+        }
+        return 1280;
+    }
+    #[ExposeInTemplate('fbVideoHeight')]
+    public function getFbVideoHeight(): int
+    {
+        if($this->getAspectRatio()) {
+            if(preg_match('@^(\d+)/(\d+)$@', $this->aspectRatio, $matches)) {
+                return intval($matches[2]) * 1000;
+            }
+        }
+        return 720;
+    }
+
+    #[ExposeInTemplate('aspectRatio')]
+    public function getAspectRatio(): string
+    {
+        return $this->aspectRatio ?? $this->video->getAspectRatio();
+
     }
 
     #[ExposeInTemplate('title')]

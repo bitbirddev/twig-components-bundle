@@ -12,6 +12,7 @@ class CatchAllHandler extends AbstractHandler
     {
     }
 
+
     public static function supports($arg): bool
     {
         return true;
@@ -31,4 +32,6 @@ class CatchAllHandler extends AbstractHandler
         // we dont know which sources are provided
         return [];
     }
+
+
 }

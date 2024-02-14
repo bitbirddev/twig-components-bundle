@@ -83,4 +83,5 @@ class VideoEditableHandler extends AbstractHandler
             default => []
         };
     }
+
 }

@@ -4,7 +4,6 @@ namespace bitbirddev\TwigComponentsBundle\MediaType\Handler;
 
 use bitbirddev\TwigComponentsBundle\MediaType\HandlerInterface;
 use bitbirddev\TwigComponentsBundle\MediaType\Helper\FacebookHelper;
-use bitbirddev\TwigComponentsBundle\MediaType\Helper\VimeoHelper;
 
 class FacebookUrlHandler extends AbstractHandler
 {
@@ -42,7 +41,6 @@ class FacebookUrlHandler extends AbstractHandler
 
     public function getConsents(): array
     {
-
         return ['r5-Z_erQ0'];
     }
 }

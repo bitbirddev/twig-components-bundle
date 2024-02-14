@@ -43,7 +43,7 @@ class VimeoUrlHandler extends AbstractHandler
 
     public function getConsents(): array
     {
-
         return ['HyEX5Nidi-m'];
     }
+
 }

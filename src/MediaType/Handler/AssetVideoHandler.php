@@ -39,4 +39,5 @@ class AssetVideoHandler extends AbstractHandler
     {
         return $this->asset->getImageThumbnail($this->posterThumbnailName)->getFrontendPath();
     }
+
 }

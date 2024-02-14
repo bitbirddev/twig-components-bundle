@@ -10,5 +10,7 @@ interface MediaInterface
 
     public function getSources(): array;
     public function getPoster(): ?string;
+
     public function getConsents(): array;
+    public function getAspectRatio(): string;
 }
