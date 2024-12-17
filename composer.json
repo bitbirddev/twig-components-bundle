@@ -14,7 +14,7 @@
   "prefer-stable": true,
   "require": {
     "php": ">=8.2",
-    "illuminate/collections": "^10.41",
+    "illuminate/collections": "*",
     "symfony/ux-twig-component": "^2.13"
   },
   "autoload": {
