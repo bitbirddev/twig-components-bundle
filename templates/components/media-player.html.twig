@@ -33,7 +33,13 @@
         <media-video-layout></media-video-layout>
         <media-audio-layout></media-audio-layout>
         </media-player>
-        {% if copyright %}<div class="mt-1 text-gray-400 text-sm flex justify-end">© {{ copyright }}</div>{% endif %}
     {% endif %}
     </consent-wall>
+    {% if copyright %}
+        {% block copyright %}
+            <div style="color:rgb(156 163 175); margin-top:-1rem; font-size: 0.875rem; line-height: 1.25rem; display: flex; justify-content: end;">
+                © {{ copyright }}
+            </div>
+        {% endblock %}
+    {% endif %}
 {% endif %}
