@@ -9,20 +9,28 @@ Use this component and throw something at it. It will handle the most common vid
 ```twig
 Pimcore VideoEditable
 <twig:media-player :video="pimcore_video('video')">
+
 Pimcore VideoDataType
 <twig:media-player :video="dataObject.video">
+
 Pimcore Asset
 <twig:media-player :video="pimcore_asset(videoAssetId)">
+
 Pimcore Asset ID
 <twig:media-player :video="23">
+
 Facebook Video
 <twig:media-player video="https://www.facebook.com/aguardos.nocturnos/videos/vb.1614866072064590/1828228624061666/?type=2&theater">
+
 Youtube URL
 <twig:media-player video="http://www.youtube.com/watch?v=DFYRQ_zQ-gk">
+
 Vimeo URL
 <twig:media-player video="http://vimeo.com/123456789">
+
 Source Array
 <twig:media-player :video="['https://test.de/yourvideo.mp4]">
+
 Your Custom DataObject (see below for VideoHandler Example)
 <twig:media-player :video="pimcore_object(customObjectId)">
 ```
@@ -30,13 +38,12 @@ Your Custom DataObject (see below for VideoHandler Example)
 ## Depends on
 
 [@bitbirddev/web-components](https://github.com/bitbirddev/web-components/tree/main)
+
 [vidstack/player](https://github.com/vidstack/player)
 
 ## Installation
 
-```composer require bitbirddev/twig-components-bundle
-
-```
+`composer require bitbirddev/twig-components-bundle`
 
 ## Sample Usage
 
@@ -47,6 +54,7 @@ Your Custom DataObject (see below for VideoHandler Example)
 ## Usage without Consent-Wall
 
 Option 1: return an empty array in the getConsents() method of your custom handler
+
 Option 2: set the `consents` attribute to an empty array in the component
 
 ```
