@@ -33,7 +33,7 @@ class MediaPlayerComponent
     public function mount($video): void
     {
         $wrapper = $this->matcher->match($video);
-        if($wrapper instanceof AbstractHandler) {
+        if ($wrapper instanceof AbstractHandler) {
             $this->video = $wrapper;
         }
     }
@@ -41,10 +41,10 @@ class MediaPlayerComponent
     #[PostMount()]
     public function preMount(): void
     {
-        if($this->videoThumbnail) {
+        if ($this->videoThumbnail) {
             $this->video->setVideoThumbnailName($this->videoThumbnail);
         }
-        if($this->posterThumbnail) {
+        if ($this->posterThumbnail) {
             $this->video->setPosterThumbnailName($this->posterThumbnail);
         }
     }
@@ -52,8 +52,8 @@ class MediaPlayerComponent
     #[ExposeInTemplate('fbVideoWidth')]
     public function getFbVideoWidth(): int
     {
-        if($this->getAspectRatio()) {
-            if(preg_match('@^(\d+)/(\d+)$@', $this->getAspectRatio(), $matches)) {
+        if ($this->getAspectRatio()) {
+            if (preg_match('@^(\d+)/(\d+)$@', $this->getAspectRatio(), $matches)) {
                 return intval($matches[1]) * 1000;
             }
         }
@@ -62,8 +62,8 @@ class MediaPlayerComponent
     #[ExposeInTemplate('fbVideoHeight')]
     public function getFbVideoHeight(): int
     {
-        if($this->getAspectRatio()) {
-            if(preg_match('@^(\d+)/(\d+)$@', $this->getAspectRatio(), $matches)) {
+        if ($this->getAspectRatio()) {
+            if (preg_match('@^(\d+)/(\d+)$@', $this->getAspectRatio(), $matches)) {
                 return intval($matches[2]) * 1000;
             }
         }
